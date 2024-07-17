@@ -1,6 +1,6 @@
 1. Initialize game
-2. Get randomized Computer Choice
-3. Get user Choice
+2. Get user Choice
+3. Get randomized Computer Choice
 4. If computer choice beats user choice, computer wins. Otherwise User wins.
 5. Whoever wins gets a point. If it's a tie, no points are scored during the round
 6. at the end of 3 rounds whoever has more points wins the game. If they have the same number of points, game ends on draw
