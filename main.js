@@ -21,5 +21,16 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+//compare user choice and computer choice
+
+function getRoundWinner() {
+    let winner;
+    let computerChoice = getComputerChoice();
+    if (playerChoice == "rock" && computerChoice == "paper") {
+        winner=`Oh no, looks like the computer won this round!`;
+}else if()
+
+    return winner;
+}
 
 
