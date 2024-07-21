@@ -2,11 +2,6 @@
 function getPlayerChoice() {
     let choice = prompt('Rock, paper,or scissors?').toLowerCase();
 
-    if (choice != 'rock' || choice != 'paper' || choice != 'scissors') {
-        alert("Invalid choice!");
-        choice = prompt("Rock, paper, or scissors?").toLowerCase();
-    }
-
     return choice;
 }
 
@@ -28,36 +23,39 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-//compare user choice and computer choice and update scores
-
+//playGame function
+let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
 let computerScore = 0;
 let playerScore = 0;
 
-let roundWinner;
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
-if (
-	(playerChoice == "rock" && computerChoice == "scissors") ||
-	(playerChoice == "paper" && computerChoice == "rock") ||
-	(playerChoice == "scissors" && computerChoice == "paper")
-) {
-    roundWinner = "Congratulations, you won this round!";
-    playerScore++
-} else if (
-	(playerChoice == "rock" && computerChoice == "paper") ||
-	(playerChoice == "paper" && computerChoice == "scissors") ||
-	(playerChoice == "scissors" && computerChoice == "rock")
-) {
-    roundWinner = "Too bad, the computer wins this time!";
-    computerScore++;
-} else {
-    roundWinner='Looks like a draw!'
+
+function playGame() {
+    let roundWinner;
+
+    if (
+        (playerChoice == "rock" && computerChoice == "scissors") ||
+        (playerChoice == "paper" && computerChoice == "rock") ||
+        (playerChoice == "scissors" && computerChoice == "paper")
+    ) {
+        roundWinner = "Congratulations, you won this round!";
+        playerScore++
+    } else if (
+        (playerChoice == "rock" && computerChoice == "paper") ||
+        (playerChoice == "paper" && computerChoice == "scissors") ||
+        (playerChoice == "scissors" && computerChoice == "rock")
+    ) {
+        roundWinner = "Too bad, the computer wins this time!";
+        computerScore++;
+    } else {
+        roundWinner = 'Looks like a draw!'
+    }
+    return roundWinner;
 }
 
-//
 
 console.log(playerChoice);
 console.log(computerChoice);
-console.log(roundWinner);
+console.log(playGame(computerChoice, playerChoice));
 console.log(playerScore);
 console.log(computerScore);
