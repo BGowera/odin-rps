@@ -1,5 +1,3 @@
-console.log("Let's play rock, paper, scissors!");
-
 //Get user input
 let playerChoice = prompt("Rock,paper or scissors?").toLowerCase();
 
@@ -21,7 +19,10 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-//compare user choice and computer choice
+//compare user choice and computer choice and update scores
+
+let computerScore = 0;
+let playerScore = 0;
 
 let roundWinner;
 let computerChoice = getComputerChoice();
@@ -30,13 +31,15 @@ if (
 	(playerChoice == "paper" && computerChoice == "rock") ||
 	(playerChoice == "scissors" && computerChoice == "paper")
 ) {
-	roundWinner = "Congratulations, you won this round!";
+    roundWinner = "Congratulations, you won this round!";
+    playerScore++
 } else if (
 	(playerChoice == "rock" && computerChoice == "paper") ||
 	(playerChoice == "paper" && computerChoice == "scissors") ||
 	(playerChoice == "scissors" && computerChoice == "rock")
 ) {
-	roundWinner = "Too bad, the computer wins this time!";
+    roundWinner = "Too bad, the computer wins this time!";
+    computerScore++;
 } else {
     roundWinner='Looks like a draw!'
 }
@@ -46,3 +49,5 @@ if (
 console.log(playerChoice);
 console.log(computerChoice);
 console.log(roundWinner);
+console.log(playerScore);
+console.log(computerScore);
