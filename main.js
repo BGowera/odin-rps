@@ -1,5 +1,14 @@
 //Get user input
-let playerChoice = prompt("Rock,paper or scissors?").toLowerCase();
+function getPlayerChoice() {
+    let choice = prompt('Rock, paper,or scissors?').toLowerCase();
+
+    if (choice != 'rock' || choice != 'paper' || choice != 'scissors') {
+        alert("Invalid choice!");
+        choice = prompt("Rock, paper, or scissors?").toLowerCase();
+    }
+
+    return choice;
+}
 
 //Create randomized computer choices
 
@@ -26,6 +35,7 @@ let playerScore = 0;
 
 let roundWinner;
 let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
 if (
 	(playerChoice == "rock" && computerChoice == "scissors") ||
 	(playerChoice == "paper" && computerChoice == "rock") ||
