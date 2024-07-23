@@ -62,6 +62,18 @@ let playerChoice = getPlayerChoice();
     return roundWinner;
 }
 
+function checkWinner() {
+    let winner;
+    if (playerScore > computerScore) {
+        winner = "Player";
+    } else if (computerScore > playerScore) {
+        winner = "Computer";
+    } else {
+        winner="Nobody - it was a draw"
+    }
+
+    return `Winner:${winner}`;
+}
 
 function playGame() {
 
@@ -73,12 +85,8 @@ function playGame() {
     }
        console.log(`Final score`);
 		console.log(`Your score:${playerScore}`);
-		console.log(`Computer score:${computerScore}`);
+    console.log(`Computer score:${computerScore}`);
+    console.log(checkWinner());
 }
 
 playGame();
-
-//console.log(playerChoice);
-//console.log(computerChoice);
-//console.log(playerScore);
-//console.log(computerScore);
