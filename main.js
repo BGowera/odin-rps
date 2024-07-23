@@ -1,3 +1,9 @@
+//****************TO DO */
+// Fix playGame() function to play more rounds
+// Add a way to check the overall winner to the game
+
+
+
 //Get user input
 function getPlayerChoice() {
     let choice = prompt('Rock, paper,or scissors?').toLowerCase();
@@ -23,14 +29,17 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-//playGame function
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
+//playRound function
+
 let computerScore = 0;
 let playerScore = 0;
 
 
-function playGame() {
+function playRound() {
+
+let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
+
     let roundWinner;
 
     if (
@@ -38,24 +47,38 @@ function playGame() {
         (playerChoice == "paper" && computerChoice == "rock") ||
         (playerChoice == "scissors" && computerChoice == "paper")
     ) {
-        roundWinner = "Congratulations, you won this round!";
+        roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so you win!`;
         playerScore++
     } else if (
         (playerChoice == "rock" && computerChoice == "paper") ||
         (playerChoice == "paper" && computerChoice == "scissors") ||
         (playerChoice == "scissors" && computerChoice == "rock")
     ) {
-        roundWinner = "Too bad, the computer wins this time!";
+        roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so the computer wins!`;
         computerScore++;
     } else {
-        roundWinner = 'Looks like a draw!'
+        roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so this round was a draw!`;
     }
     return roundWinner;
 }
 
 
-console.log(playerChoice);
-console.log(computerChoice);
-console.log(playGame(computerChoice, playerChoice));
-console.log(playerScore);
-console.log(computerScore);
+function playGame() {
+
+    for (let i = 1; i < 6; i++){
+        console.log(`Round ${i}`)
+        console.log(`Your score:${playerScore}`);
+        console.log(`Computer score:${computerScore}`)
+        console.log(playRound());
+    }
+       console.log(`Final score`);
+		console.log(`Your score:${playerScore}`);
+		console.log(`Computer score:${computerScore}`);
+}
+
+playGame();
+
+//console.log(playerChoice);
+//console.log(computerChoice);
+//console.log(playerScore);
+//console.log(computerScore);
