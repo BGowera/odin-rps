@@ -1,6 +1,7 @@
 //DOM Elements
 const playerScorePara = document.querySelector('.player-score-para');
-const computerScorePara=document.querySelector('.computer-score-para')
+const computerScorePara = document.querySelector('.computer-score-para')
+const roundNumberHeading=document.querySelector('.round-number-heading')
 const rockBtn = document.querySelector('.rock-btn');
 const paperBtn = document.querySelector('.paper-btn');
 const scissorsBtn = document.querySelector('.scissors-btn');
@@ -9,6 +10,7 @@ const roundWinnerPara=document.querySelector('.round-winner-para')
 
 computerChoicePara.textContent = '';
 roundWinnerPara.textContent = '';
+roundNumberHeading.textContent = '';
 
 //Create randomized computer choices
 
