@@ -12,7 +12,17 @@ computerChoicePara.textContent = "";
 roundWinnerPara.textContent = "";
 roundNumberHeading.textContent = "";
 
-//Create randomized computer choices
+let computerScore = 0;
+let playerScore = 0;
+let playerChoice;
+let computerChoice;
+let roundNumber = 1;
+
+
+
+
+
+//functions
 
 function getComputerChoice() {
 	let choices = ["rock", "paper", "scissors"];
@@ -30,51 +40,27 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-let computerScore = 0;
-let playerScore = 0;
-let playerChoice;
-let computerChoice;
-let turnsLeft=5
 
 function updateScore() {
+	roundNumberHeading.textContent = `Round ${roundNumber}! Rock, paper or scissors?`;
 	playerScorePara.textContent = `Player Score:${playerScore}`;
 	computerScorePara.textContent = `Computer Score:${computerScore}`;
 }
 
-updateScore();
 
-function playRock() {
-	playerChoice = "rock";
-	computerChoice = getComputerChoice();
-	playRound();
-	updateScore();
-}
-
-function playPaper() {
-	playerChoice = "paper";
-    computerChoice = getComputerChoice();
-    playRound();
-	updateScore();
-}
-
-function playScissors() {
-	playerChoice = "scissors";
-    computerChoice = getComputerChoice();
-    playRound();
-	updateScore();
-}
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function playRound() {
-	if (
+	roundNumber++;
+		if (
 		(playerChoice == "rock" && computerChoice == "scissors") ||
 		(playerChoice == "paper" && computerChoice == "rock") ||
 		(playerChoice == "scissors" && computerChoice == "paper")
 	) {
-		computerChoicePara.textContent = `Computer played ${computerChoice}. ${playerChoice} beats ${computerChoice}`;
+		computerChoicePara.textContent = `Computer played ${computerChoice}. ${capitalizeFirstLetter(playerChoice)} beats ${computerChoice}.`;
 		playerScore++;
 		document.body.style.backgroundColor = "green";
 	} else if (
@@ -83,37 +69,45 @@ function playRound() {
 		(playerChoice == "scissors" && computerChoice == "rock")
 	) {
 		computerScore++;
-		computerChoicePara.textContent = `Computer played ${computerChoice}. ${computerChoice} beats ${playerChoice}`;
+		computerChoicePara.textContent = `Computer played ${computerChoice}. ${capitalizeFirstLetter(computerChoice)} beats ${playerChoice}.`;
 		document.body.style.backgroundColor = "red";
 	} else {
-        computerChoicePara.textContent = `Computer played ${computerChoice}. This round was a draw`;
-        document.body.style.backgroundColor = "#e2e2e2";
+		computerChoicePara.textContent = `Computer played ${computerChoice}. This round was a draw.`;
+		document.body.style.backgroundColor = "#e2e2e2";
 	}
 }
+console.log(roundNumber)
+function playRock() {
 
-function checkWinner() {
-	let winner;
-	if (playerScore > computerScore) {
-		winner = "Player won the game";
-	} else if (computerScore > playerScore) {
-		winner = "Computer won the game";
-	} else {
-		winner = "Nobody won- it was a draw";
-	}
+	playerChoice = "rock";
+	computerChoice = getComputerChoice();
+	playRound();
+	updateScore();
 
-	return winner;
 }
 
-function playGame() {
-	for (let i = 1; i < 6; i++) {
-		roundNumberHeading.textContent = `Round ${i}! Rock, paper or scissors?`;
-		break;
-		
-	}
+function playPaper() {
+	playerChoice = "paper";
+	computerChoice = getComputerChoice();
+	playRound();
+	updateScore();
 }
-playGame()
+
+function playScissors() {
+	playerChoice = "scissors";
+	computerChoice = getComputerChoice();
+	playRound();
+	updateScore();
+}
+
+if (roundNumber > 5) {
+	alert("hello");
+}
+
+
+updateScore();
 //event listeners
 
 rockBtn.addEventListener("click", playRock);
-paperBtn.addEventListener('click', playPaper);
-scissorsBtn.addEventListener('click', playScissors);
+paperBtn.addEventListener("click", playPaper);
+scissorsBtn.addEventListener("click", playScissors);
