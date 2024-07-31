@@ -90,7 +90,18 @@ function playRound() {
 	}
 }
 
+function checkWinner() {
+	let winner;
+	if (playerScore > computerScore) {
+		winner = "Player won the game";
+	} else if (computerScore > playerScore) {
+		winner = "Computer won the game";
+	} else {
+		winner = "Nobody won- it was a draw";
+	}
 
+	return winner;
+}
 
 //event listeners
 
