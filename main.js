@@ -30,8 +30,6 @@ function getComputerChoice() {
 	return computerChoice;
 }
 
-//playRound function
-
 let computerScore = 0;
 let playerScore = 0;
 let playerChoice;
@@ -58,3 +56,4 @@ function playScissors() {
     playerChoice = 'scissors';
     computerChoice = getComputerChoice();
 }
+
