@@ -1,91 +1,41 @@
-////****************TO DO */
-//// Figure out user input validation or just fix it in the GUI
-//// Maybe shorten some of the spaghetti code
+//DOM Elements
+const playerScorePara = document.querySelector('.player-score-para');
+const computerScorePara=document.querySelector('.computer-score-para')
+const rockBtn = document.querySelector('.rock-btn');
+const paperBtn = document.querySelector('.paper-btn');
+const scissorsBtn = document.querySelector('.scissors-btn');
+const computerChoicePara = document.querySelector('.computer-choice-para');
+const roundWinnerPara=document.querySelector('.round-winner-para')
 
-////Get user input
-//function getPlayerChoice() {
-//	let choice = prompt("Rock, paper,or scissors?").toLowerCase();
+computerChoicePara.textContent = '';
+roundWinnerPara.textContent = '';
 
-//	return choice;
-//}
+//Create randomized computer choices
 
-////Create randomized computer choices
+function getComputerChoice() {
+	let choices = ["rock", "paper", "scissors"];
+	let randomNumber = parseInt(Math.floor(Math.random() * 3));
+	let computerChoice;
 
-//function getComputerChoice() {
-//	let choices = ["rock", "paper", "scissors"];
-//	let randomNumber = parseInt(Math.floor(Math.random() * 3));
-//	let computerChoice;
+	if (randomNumber == 0) {
+		computerChoice = choices[0];
+	} else if (randomNumber == 1) {
+		computerChoice = choices[1];
+	} else {
+		computerChoice = choices[2];
+	}
 
-//	if (randomNumber == 0) {
-//		computerChoice = choices[0];
-//	} else if (randomNumber == 1) {
-//		computerChoice = choices[1];
-//	} else {
-//		computerChoice = choices[2];
-//	}
+	return computerChoice;
+}
 
-//	return computerChoice;
-//}
+//playRound function
 
-////playRound function
+let computerScore = 0;
+let playerScore = 0;
 
-//let computerScore = 0;
-//let playerScore = 0;
+function updateScore() {
+    playerScorePara.textContent = `Player Score:${playerScore}`;
+    computerScorePara.textContent = `Computer Score:${computerScore}`;
+}
 
-//function playRound() {
-//	let computerChoice = getComputerChoice();
-//	let playerChoice = getPlayerChoice();
-
-//	let roundWinner;
-
-//	if (
-//		(playerChoice == "rock" && computerChoice == "scissors") ||
-//		(playerChoice == "paper" && computerChoice == "rock") ||
-//		(playerChoice == "scissors" && computerChoice == "paper")
-//	) {
-//		roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so you win!`;
-//		playerScore++;
-//	} else if (
-//		(playerChoice == "rock" && computerChoice == "paper") ||
-//		(playerChoice == "paper" && computerChoice == "scissors") ||
-//		(playerChoice == "scissors" && computerChoice == "rock")
-//	) {
-//		roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so the computer wins!`;
-//		computerScore++;
-//	} else {
-//		roundWinner = `You played ${playerChoice} and the computer played ${computerChoice} so this round was a draw!`;
-//	}
-//	return roundWinner;
-//}
-
-//// check who won the game
-
-//function checkWinner() {
-//	let winner;
-//	if (playerScore > computerScore) {
-//		winner = "Player";
-//	} else if (computerScore > playerScore) {
-//		winner = "Computer";
-//	} else {
-//		winner = "Nobody - it was a draw";
-//	}
-
-//	return `Winner:${winner}`;
-//}
-
-//// function to run a five round game
-
-//function playGame() {
-//	for (let i = 1; i < 6; i++) {
-//		console.log(`Round ${i}`);
-//		console.log(`Your score:${playerScore}`);
-//		console.log(`Computer score:${computerScore}`);
-//		console.log(playRound());
-//	}
-//	console.log(`Final score`);
-//	console.log(`Your score:${playerScore}`);
-//	console.log(`Computer score:${computerScore}`);
-//	console.log(checkWinner());
-//}
-
-
+updateScore()
