@@ -32,6 +32,8 @@ function getComputerChoice() {
 
 let computerScore = 0;
 let playerScore = 0;
+let playerChoice;
+let computerChoice;
 
 function updateScore() {
     playerScorePara.textContent = `Player Score:${playerScore}`;
@@ -39,3 +41,18 @@ function updateScore() {
 }
 
 updateScore()
+
+function playRock() {
+    playerChoice = 'rock';
+    computerChoice=getComputerChoice();
+}
+
+function playPaper() {
+    playerChoice = 'paper';
+    computerChoice = getComputerChoice();
+}
+
+function playScissors() {
+    playerChoice = 'scissors';
+    computerChoice = getComputerChoice();
+}
