@@ -34,6 +34,7 @@ let computerScore = 0;
 let playerScore = 0;
 let playerChoice;
 let computerChoice;
+let turnsLeft=5
 
 function updateScore() {
 	playerScorePara.textContent = `Player Score:${playerScore}`;
@@ -103,6 +104,14 @@ function checkWinner() {
 	return winner;
 }
 
+function playGame() {
+	for (let i = 1; i < 6; i++) {
+		roundNumberHeading.textContent = `Round ${i}! Rock, paper or scissors?`;
+		break;
+		
+	}
+}
+playGame()
 //event listeners
 
 rockBtn.addEventListener("click", playRock);
