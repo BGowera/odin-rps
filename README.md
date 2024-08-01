@@ -2,6 +2,6 @@
 
 Rock Paper Scissors Game
 
-Classic rules of rock, paper scissors. Rock beats scissors, paper beats rock and scissors beat paper. Just press F12 to open the dev console in your browser and you're good to go!
+Classic rules of rock, paper scissors. Rock beats scissors, paper beats rock and scissors beat paper. Best of 5 wins.
 
 Live preview [here] (https://bgowera.github.io/odin-rps/)
