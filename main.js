@@ -8,7 +8,7 @@ const scissorsBtn = document.querySelector(".scissors-btn");
 const computerChoicePara = document.querySelector(".computer-choice-para");
 const roundWinnerPara = document.querySelector(".round-winner-para");
 
-computerChoicePara.innerText = "";
+clearPara()
 roundWinnerPara.innerText = "";
 roundNumberHeading.innerText = "";
 
@@ -20,6 +20,9 @@ let roundNumber = 1;
 let turnsLeft = 5;
 
 // Functions
+function clearPara() {
+	computerChoicePara.textContent=""
+}
 
 function getComputerChoice() {
 	let choices = ["rock", "paper", "scissors"];
@@ -37,37 +40,33 @@ function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-
-
 function checkWinner() {
 	if (playerScore > computerScore) {
-		console.log("Player wins");
+	
 		roundNumberHeading.innerText = `Congratulations! You win!`;
 		document.body.style.backgroundColor = "green";
-
 	} else if (computerScore > playerScore) {
-		console.log("Computer wins");
+		
 		roundNumberHeading.innerText = `Sorry! The computer won this one!`;
 		document.body.style.backgroundColor = "red";
-	
 	} else {
-		console.log("It's a tie");
+	
 		roundNumberHeading.innerText = `This game ended on a tie`;
 		document.body.style.backgroundColor = "#e2e2e2";
 	}
 	rockBtn.disabled = true;
 	paperBtn.disabled = true;
 	scissorsBtn.disabled = true;
+	clearPara()
 }
 
-
 function playRound() {
-		turnsLeft--;
-roundNumber++;
-console.log(turnsLeft, roundNumber)
+	turnsLeft--;
+	roundNumber++;
+	console.log(turnsLeft, roundNumber);
 	if (turnsLeft == 0) {
 		checkWinner();
-		return
+		return;
 	}
 	if (
 		(playerChoice == "rock" && computerChoice == "scissors") ||
@@ -92,12 +91,10 @@ console.log(turnsLeft, roundNumber)
 	} else {
 		computerChoicePara.innerText = `Computer played ${computerChoice}. This round was a draw.`;
 		document.body.style.backgroundColor = "#e2e2e2";
-		
 	}
-	
-	updateScore()
-}
 
+	updateScore();
+}
 
 function playRock() {
 	playerChoice = "rock";
@@ -116,8 +113,6 @@ function playScissors() {
 	computerChoice = getComputerChoice();
 	playRound();
 }
-
-
 
 updateScore();
 // Event listeners
